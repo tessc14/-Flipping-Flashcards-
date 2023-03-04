@@ -1,8 +1,22 @@
 body {
+    text-align: center;
     margin-top: 5.5em;
     background-color: #B8B8D1;
+    font-family: 'Krona One', sans-serif;
 }
 
-h1, h2, p {
+
+h1, h2, p, h3, h5 {
     color: #FFFFFB;
+    font-family: 'Krona One', sans-serif;
+}
+
+.home-links {
+    color: #5B5F97;
+    text-decoration: none;
+}
+
+.home-links:hover {
+    color: #FFFFFB;
+    cursor: pointer;
 }

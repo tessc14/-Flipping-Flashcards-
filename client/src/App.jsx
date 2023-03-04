@@ -13,6 +13,7 @@ const App = () => {
           <Route path='/flashcards' element={<Pages.Flashcards />} />
           <Route path='/add' element={<Pages.AddFlashcard />} />
           <Route path='/login' element={<Pages.Login />} />
+          <Route path='/:username' element={<Pages.UserPage />} />
           <Route path='/categories' element={<Pages.SetCategory />} />
           <Route path='*' element={<Pages.NotFound />} />
         </Route>
