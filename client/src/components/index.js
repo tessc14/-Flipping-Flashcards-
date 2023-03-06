@@ -1,1 +1,3 @@
 export { default as NavBar } from './NavBar'
+export { default as Flashcard } from './Flashcard'
+export { default as FlashcardGallery } from './FlashcardGallery'

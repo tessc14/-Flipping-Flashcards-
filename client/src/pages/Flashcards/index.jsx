@@ -1,8 +1,13 @@
 import React from 'react'
+import { FlashcardGallery } from '../../components'
+
 
 const Flashcards = () => {
   return (
-    <div>Flashcards</div>
+    <div className="flashcard-container">
+      <FlashcardGallery />
+
+    </div>
   )
 }
 
