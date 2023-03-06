@@ -1,10 +1,11 @@
 import React from 'react'
-import { Flashcard } from '../../components'
+import { FlashcardGallery } from '../../components'
+
 
 const Flashcards = () => {
   return (
     <div className="flashcard-container">
-      <Flashcard />
+      <FlashcardGallery />
 
     </div>
   )

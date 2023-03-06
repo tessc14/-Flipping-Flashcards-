@@ -1,8 +1,9 @@
 import React from 'react'
+import './style.css'
 
 function Flashcard() {
   return (
-    <div>Flashcard</div>
+    <div className="flashcard">?</div>
   )
 }
 
