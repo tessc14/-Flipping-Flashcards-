@@ -16,7 +16,6 @@ const Login = () => {
         console.log("Invalid properties");
       } else {
         console.log("Register");
-        console.log(userName.length);
       }
     }
   };
