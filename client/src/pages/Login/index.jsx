@@ -9,7 +9,12 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  console.log("object");
+
+  const toggleLogin = () => {
+    setUserName("");
+    setPassword("");
+    setIsLogin(!isLogin);
+  };
 
   return (
     <>
@@ -43,7 +48,7 @@ const Login = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
               <button type="submit">Register</button>
-              <button onClick={() => setIsLogin(!isLogin)}>Go to Login</button>
+              <button onClick={() => toggleLogin()}>Go to Login</button>
             </form>
           </>
         ) : (
@@ -67,9 +72,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button type="submit">Login</button>
-              <button onClick={() => setIsLogin(!isLogin)}>
-                Go to Register
-              </button>
+              <button onClick={() => toggleLogin()}>Go to Register</button>
             </form>
           </>
         )}
