@@ -3,8 +3,10 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-
 import api from "./api.js";
+
+const app = api;
+app.use(cors());
 
 const app = express();
 const port = process.env.PORT || 3000;
