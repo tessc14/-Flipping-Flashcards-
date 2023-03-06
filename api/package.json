@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -L index.js",
@@ -20,6 +21,8 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.21",
     "npm": "^9.6.0",
-    "pg": "^8.9.0"
+    "pg": "^8.9.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
   }
 }

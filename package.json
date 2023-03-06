@@ -2,10 +2,21 @@
  "scripts": {
   "setup-production": "cd client && npm install && npm run build && cd .. && cd api && npm install cd..",
   "setup-development": "cd client && npm install && cd .. && cd api && npm install cd..",
-  "start": "node server.js",
+  "install-client": "cd client && npm install && npm run build && cd ..",
+  "install-server": "cd api && npm install && cd .. ",
+  "postbuild": "npm run install-client && npm run install-server",
+  "start": "npm start --prefix api",
   "test": "echo \"Error: no test specified\" && exit 1"
  },
  "dependencies": {
-  "cd..": "^0.0.0"
+  "cd..": "^0.0.0",
+  "cors": "^2.8.5",
+  "dotenv": "^16.0.3",
+  "express": "^4.18.2",
+  "path": "^0.12.7",
+  "url": "^0.11.0"
+ },
+ "devDependencies": {
+  "nodemon": "^2.0.21"
  }
 }
