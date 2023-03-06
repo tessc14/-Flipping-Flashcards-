@@ -8,6 +8,16 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isLogin) {
+      console.log("Login");
+    }
+    if (isLogin) {
+      if (password !== confirmPassword) {
+        console.log("Passwords do not match");
+      } else {
+        console.log("Register");
+      }
+    }
   };
 
   const toggleLogin = () => {
