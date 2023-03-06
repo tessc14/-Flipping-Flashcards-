@@ -2,6 +2,9 @@
  "scripts": {
   "setup-production": "cd client && npm install && npm run build && cd .. && cd api && npm install cd..",
   "setup-development": "cd client && npm install && cd .. && cd api && npm install cd..",
+  "install-client": "cd client && npm install && npm run build && cd ..",
+  "install-server": "cd api && npm install && cd .. ",
+  "postbuild": "npm run install-client && npm run install-server",
   "start": "node server.js",
   "test": "echo \"Error: no test specified\" && exit 1"
  },
