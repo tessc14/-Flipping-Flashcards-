@@ -10,5 +10,8 @@
  },
  "dependencies": {
   "cd..": "^0.0.0"
+ },
+ "devDependencies": {
+  "nodemon": "^2.0.21"
  }
 }
