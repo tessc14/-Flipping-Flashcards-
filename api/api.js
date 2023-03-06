@@ -1,8 +1,5 @@
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
 
 const api = express();
 
@@ -15,4 +12,4 @@ api.get("/", (req, res) => {
   });
 });
 
-module.exports = api;
+export default api;
