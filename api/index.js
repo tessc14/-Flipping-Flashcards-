@@ -4,10 +4,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const app = express();
-app.use(cors());
-
-dotenv.config();
+const api = require("./api");
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
