@@ -1,0 +1,11 @@
+{
+ "scripts": {
+  "setup-production": "cd client && npm install && npm run build && cd .. && cd api && npm install cd..",
+  "setup-development": "cd client && npm install && cd .. && cd api && npm install cd..",
+  "start": "node server.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "dependencies": {
+  "cd..": "^0.0.0"
+ }
+}
