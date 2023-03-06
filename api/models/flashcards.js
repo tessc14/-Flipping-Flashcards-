@@ -19,57 +19,56 @@ class Flashcard {
         const response = await db.query(
             "SELECT * FROM flashcards;"
         );
-        return response.rows.map((g) => new Event(g));
-    }
-
-
-    static async getUserFlashcards(user) {
-        const response = await db.query(
-            "SELECT * FROM flashcards WHERE user_id = $1;",
-            [user.id]
-        );
         return response.rows.map((g) => new Flashcard(g));
     }
 
-    static async getOneById(id) {
-        const response = await db.query(
-            "SELECT * FROM flashcards WHERE event_id = $1",
-            [id]
-        );
-        if (response.rows.length != 1) {
-            throw new Error("Unable to locate flashcard.");
-        }
-        return new Flashcard(response.rows[0]);
-    }
+    // static async getUserFlashcards(user) {
+    //     const response = await db.query(
+    //         "SELECT * FROM flashcards WHERE user_id = $1;",
+    //         [user.id]
+    //     );
+    //     return response.rows.map((g) => new Flashcard(g));
+    // }
+
+    // static async getOneById(id) {
+    //     const response = await db.query(
+    //         "SELECT * FROM flashcards WHERE event_id = $1",
+    //         [id]
+    //     );
+    //     if (response.rows.length != 1) {
+    //         throw new Error("Unable to locate flashcard.");
+    //     }
+    //     return new Flashcard(response.rows[0]);
+    // }
     
-    static async create(data) {
-        const {
-            user_id,
-            question,
-            answer,
-            category_name,
-        } = data;
-        const response = await db.query(
-            "INSERT INTO flashcards (user_id, question, answer, category_name) VALUES ($1, $2, $3, $4) RETURNING *;",
-            [
-                user_id,
-                question,
-                answer,
-                category_name,
-            ]
-        );
+    // static async create(data) {
+    //     const {
+    //         user_id,
+    //         question,
+    //         answer,
+    //         category_name,
+    //     } = data;
+    //     const response = await db.query(
+    //         "INSERT INTO flashcards (user_id, question, answer, category_name) VALUES ($1, $2, $3, $4) RETURNING *;",
+    //         [
+    //             user_id,
+    //             question,
+    //             answer,
+    //             category_name,
+    //         ]
+    //     );
 
-        return new Flashcard(response.rows[0]);
-    }
+    //     return new Flashcard(response.rows[0]);
+    // }
 
-    async destroy() {
-        let response = await db.query(
-            "DELETE FROM flashcards WHERE flashcard_id = $1 RETURNING *;",
-            [this.id]
-        );
+    // async destroy() {
+    //     let response = await db.query(
+    //         "DELETE FROM flashcards WHERE flashcard_id = $1 RETURNING *;",
+    //         [this.id]
+    //     );
 
-        return new Flashcard(response.rows[0]);
-    }
+    //     return new Flashcard(response.rows[0]);
+    // }
 }
 
 export default Flashcard;
