@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
+import flashcardsRouter from "./routers/flashcards.js";
 
 const api = express();
 
@@ -15,4 +16,6 @@ api.get("/", (req, res) => {
   });
 });
 
-module.exports = api;
+api.use("/flashcards", flashcardsRouter);
+
+export default api;
