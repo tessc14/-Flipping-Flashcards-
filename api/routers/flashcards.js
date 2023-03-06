@@ -1,8 +1,8 @@
 import { Router } from "express";
 
-import flashcardsController from "../controllers/flashcards.js";
+import index from "../controllers/flashcards.js";
 const flashcardsRouter = Router();
 
-//flashcardsRouter.get("/", flashcardsController.index);
+flashcardsRouter.get("/", index);
 //currently breaks the app probably the .index
 export default flashcardsRouter;
