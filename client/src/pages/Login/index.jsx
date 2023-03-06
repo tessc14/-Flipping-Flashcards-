@@ -4,7 +4,7 @@ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,10 +12,11 @@ const Login = () => {
       console.log("Login");
     }
     if (isLogin) {
-      if (password !== confirmPassword) {
-        console.log("Passwords do not match");
+      if (userName.length == 0 || password !== confirmPassword) {
+        console.log("Invalid properties");
       } else {
         console.log("Register");
+        console.log(userName.length);
       }
     }
   };
