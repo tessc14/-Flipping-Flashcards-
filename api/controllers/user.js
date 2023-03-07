@@ -1,4 +1,6 @@
 import User from "../models/users.js";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
 async function index(req, res) {
   try {
@@ -27,10 +29,9 @@ async function loginUser(req, res) {
     const user = await User.findByUsername(username);
     console.log(user);
     if (user.password.trim() === password) {
-      console.log("lgtm");
-      res.status(200).json(user);
+      const token = jwt.sign({ userId: user.id }, process.env.SECRET);
+      res.status(200).json({ token });
     } else {
-      console.log("looks bad to me");
       res.status(401).json({ error: "Invalid credentials" });
     }
   } catch (error) {
