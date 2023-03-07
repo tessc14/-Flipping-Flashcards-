@@ -1,10 +1,15 @@
 import { Router } from "express";
 
-import { index } from "../controllers/flashcards.js";
+// import show from "../controllers/flashcards.js";
+import { show, index, create } from "../controllers/flashcards.js";
+
+// import * as Controllers from "../controllers/flashcards.js";
 const flashcardsRouter = Router();
 
-flashcardsRouter.get("/", index);
+flashcardsRouter
+        .get("/flashcards/:id", show)
+        .get("/flashcards", index)
+        .post("/flashcards", create)
 
-// flashcardsRouter.get("/:id", show);
 
 export default flashcardsRouter;
