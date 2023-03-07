@@ -1,11 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useAuth } from "../../contexts";
+import "./login.css";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
+
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
+
+  const { setUser, user } = useAuth();
+
+  const getPayload = () => {
+    const token = window.localStorage.getItem("token");
+    if (!token) return false;
+    const parts = token.split(".");
+    if (parts.length < 3) return false;
+    return JSON.parse(atob(parts[1]));
+  };
+
+  let userId = getPayload().userId;
+  setUser(userId);
+  console.log({ user });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,12 +31,14 @@ const Login = () => {
       console.log("Login");
       // send login info to server
       axios
-        .post("/login", {
-          userName,
-          password,
+        .post("/users/login", {
+          username: userName,
+          password: password,
         })
         .then((response) => {
-          console.log(response.data);
+          const token = response.data.token;
+          localStorage.setItem("token", token);
+          navigate("/");
         })
         .catch((error) => {
           console.log(error);
@@ -54,7 +74,7 @@ const Login = () => {
 
   return (
     <>
-      <div>
+      <div className="loginWrapper">
         {isLogin ? (
           <>
             <h1>Register</h1>
@@ -91,7 +111,7 @@ const Login = () => {
           <>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="userName">UserName</label>
+              <label htmlFor="userName">Username</label>
               <input
                 type="text"
                 name="username"
