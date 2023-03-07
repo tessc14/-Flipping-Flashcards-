@@ -5,8 +5,8 @@ import FlashcardGalleryByCategory from '../../components/FlashcardGalleryByCateg
 const SetCategory = () => {
   return (
     <>
-      <Link to=""><h3>History</h3></Link>
-      <h3>Geography</h3>
+      <Link to="/flashcards/categories/history"><h3>History</h3></Link>
+      <Link to="/flashcards/categories/geography"><h3>Geography</h3></Link>
     </>
   )
 }

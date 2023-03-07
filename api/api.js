@@ -11,8 +11,10 @@ api.use(express.json());
 api.use(bodyParser.json())
 api.use(bodyParser.urlencoded({ extended: false }))
 
-// api.use(flashcardsRouter);
+
 api.use("/api/flashcards", flashcardsRouter);
+
+
 api.use("/users", usersRouter);
 
 export default api;
