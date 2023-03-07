@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "dev": "nodemon -L index.js",
     "start": "nodemon index.js",
     "setup-db": "node ./database/setup.js"
@@ -18,11 +18,13 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
+    "jest": "^29.5.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.21",
     "npm": "^9.6.0",
-    "pg": "^8.9.0",
     "path": "^0.12.7",
+    "pg": "^8.9.0",
+    "supertest": "^6.3.3",
     "url": "^0.11.0"
   }
 }

@@ -7,6 +7,7 @@ const api = express();
 api.use(cors());
 api.use(express.json());
 
+
 api.use("/flashcards", flashcardsRouter);
 
 export default api;
