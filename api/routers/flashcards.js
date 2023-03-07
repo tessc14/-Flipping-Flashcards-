@@ -7,4 +7,7 @@ flashcardsRouter.get("/", index);
 
 // flashcardsRouter.get("/:id", show);
 
+flashcardsRouter.post("/register", register);
+flashcardsRouter.post("/login", login);
+
 export default flashcardsRouter;
