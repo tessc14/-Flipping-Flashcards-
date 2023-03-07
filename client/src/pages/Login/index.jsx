@@ -9,14 +9,13 @@ const Login = () => {
 
   const getPayload = () => {
     const token = window.localStorage.getItem("token");
-    console.log(token);
     if (!token) return false;
     const parts = token.split(".");
     if (parts.length < 3) return false;
     return JSON.parse(atob(parts[1]));
   };
 
-  let userId = getPayload().sub;
+  let userId = getPayload().userId;
   console.log(userId);
 
   const handleSubmit = (e) => {
