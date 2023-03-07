@@ -7,18 +7,31 @@ const Login = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
 
+  const getPayload = () => {
+    const token = window.localStorage.getItem("token");
+    if (!token) return false;
+    const parts = token.split(".");
+    if (parts.length < 3) return false;
+    return JSON.parse(atob(parts[1]));
+  };
+
+  let userId = getPayload().userId;
+  console.log(userId);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isLogin) {
       console.log("Login");
       // send login info to server
       axios
-        .post("/login", {
-          userName,
-          password,
+        .post("/users/login", {
+          username: userName,
+          password: password,
         })
         .then((response) => {
-          console.log(response.data);
+          const token = response.data.token;
+          localStorage.setItem("token", token);
+          window.location.href = "/";
         })
         .catch((error) => {
           console.log(error);
