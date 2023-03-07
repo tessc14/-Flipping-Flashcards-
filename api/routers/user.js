@@ -5,7 +5,8 @@ import { index, show, create, update, destroy } from "../controllers/user.js";
 const userRouter = Router();
 
 userRouter.post("/register", registerUser);
-userRouter.get("/login", loginUser);
-userRouter.get("/user", findById);
+userRouter.post("/login", loginUser);
+userRouter.get("/user/:id", findById);
+userRouter.get("/user/:username", findByUsername);
 
 export default userRouter;
