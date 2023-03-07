@@ -46,3 +46,14 @@ export async function destroy(req, res) {
         res.status(404).json({ error: err.message });
     }
 }
+
+export async function setCategory(req, res) {
+    console.log(req.params.category)
+    try {
+        const category = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
+        const flashcardsByCategory = await Flashcard.getCategory(category);
+        res.status(200).json(flashcardsByCategory);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}

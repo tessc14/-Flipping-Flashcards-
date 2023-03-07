@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS flashcards;
-DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS token;
 DROP TABLE IF EXISTS user_account;
 
@@ -17,9 +16,6 @@ CREATE TABLE token (
     FOREIGN KEY (user_id) REFERENCES user_account(user_id)
 );
 
-CREATE TABLE categories (
-    category_name VARCHAR(100) PRIMARY KEY
-);
 
 CREATE TABLE flashcards (
     flashcard_id INT GENERATED ALWAYS AS IDENTITY,
@@ -27,8 +23,7 @@ CREATE TABLE flashcards (
     question VARCHAR(300),
     answer VARCHAR(300),
     category_name VARCHAR(100) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES user_account(user_id),
-    FOREIGN KEY (category_name) REFERENCES categories(category_name)
+    FOREIGN KEY (user_id) REFERENCES user_account(user_id)
 );
 
 INSERT INTO user_account (username, password)
@@ -42,9 +37,6 @@ INSERT INTO token (user_id, token)
 SELECT user_id, md5(random()::text)
 FROM user_account;
 
-INSERT INTO categories (category_name)
-VALUES ('Geography'),
-       ('History');
 
 INSERT INTO flashcards (user_id, question, answer, category_name)
 SELECT 1, 'What is the capital city of France?', 'Paris', 'Geography'
