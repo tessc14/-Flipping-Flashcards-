@@ -14,8 +14,8 @@ const Login = () => {
       // send login info to server
       axios
         .post("/users/login", {
-          userName,
-          password,
+          username: userName,
+          password: password,
         })
         .then((response) => {
           console.log(response.data);
