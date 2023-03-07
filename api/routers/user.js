@@ -4,9 +4,8 @@ import {
   index,
   show,
   create,
-  update,
   destroy,
-  findByUsername,
+  showByUserName,
 } from "../controllers/user.js";
 
 const userRouter = Router();
@@ -14,6 +13,6 @@ const userRouter = Router();
 userRouter.post("/register", create);
 //userRouter.post("/login", loginUser);
 userRouter.get("/user/:id", show);
-userRouter.get("/user/:username", findByUsername);
+userRouter.get("/user/:username", showByUserName);
 
 export default userRouter;
