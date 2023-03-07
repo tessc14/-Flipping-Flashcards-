@@ -5,13 +5,13 @@ const Home = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  console.log(user);
+  console.log({ user });
 
   useEffect(() => {
     if (user === null) {
       navigate("/login");
     }
-  }, []);
+  }, [user]);
 
   return (
     <>

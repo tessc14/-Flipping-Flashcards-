@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../contexts";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
+
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -20,8 +23,7 @@ const Login = () => {
 
   let userId = getPayload().userId;
   setUser(userId);
-  console.log(user);
-  console.log(userId);
+  console.log({ user });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +38,7 @@ const Login = () => {
         .then((response) => {
           const token = response.data.token;
           localStorage.setItem("token", token);
-          window.location.href = "/";
+          navigate("/");
         })
         .catch((error) => {
           console.log(error);
