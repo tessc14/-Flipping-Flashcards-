@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useAuth } from "../../contexts";
+import "./login.css";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
+
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
+
+  const { setUser, user } = useAuth();
 
   const getPayload = () => {
     const token = window.localStorage.getItem("token");
@@ -16,7 +22,8 @@ const Login = () => {
   };
 
   let userId = getPayload().userId;
-  console.log(userId);
+  setUser(userId);
+  console.log({ user });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +38,7 @@ const Login = () => {
         .then((response) => {
           const token = response.data.token;
           localStorage.setItem("token", token);
-          window.location.href = "/";
+          navigate("/");
         })
         .catch((error) => {
           console.log(error);
@@ -67,7 +74,7 @@ const Login = () => {
 
   return (
     <>
-      <div>
+      <div className="loginWrapper">
         {isLogin ? (
           <>
             <h1>Register</h1>
@@ -104,7 +111,7 @@ const Login = () => {
           <>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="userName">UserName</label>
+              <label htmlFor="userName">Username</label>
               <input
                 type="text"
                 name="username"
