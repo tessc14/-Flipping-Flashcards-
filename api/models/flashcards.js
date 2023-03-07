@@ -17,11 +17,19 @@ class Flashcard {
     }
 
     static async getUserFlashcards(user) {
-        const response = await db.query(
-            "SELECT * FROM flashcards WHERE user_id = $1;",
-            [user.id]
-        );
-        return response.rows.map((g) => new Flashcard(g));
+      const response = await db.query(
+          "SELECT * FROM flashcards WHERE user_id = $1;",
+          [user.id]
+      );
+      return response.rows.map((g) => new Flashcard(g));
+    }
+
+    static async getCategory(category) {
+      const response = await db.query(
+        "SELECT * FROM flashcards WHERE category_name = $1",
+        [category]
+      );
+      return response.rows
     }
 
     static async getOneById(id) {
