@@ -13,7 +13,7 @@ const Login = () => {
       console.log("Login");
       // send login info to server
       axios
-        .post("/login", {
+        .post("/users/login", {
           userName,
           password,
         })

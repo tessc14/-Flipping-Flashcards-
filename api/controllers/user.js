@@ -21,6 +21,23 @@ async function show(req, res) {
   }
 }
 
+async function loginUser(req, res) {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findByUsername(username);
+    console.log(user);
+    if (user.password.trim() === password) {
+      console.log("lgtm");
+      res.status(200).json(user);
+    } else {
+      console.log("looks bad to me");
+      res.status(401).json({ error: "Invalid credentials" });
+    }
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+}
+
 async function showByUserName(req, res) {
   try {
     const username = req.params.username;
@@ -51,4 +68,4 @@ async function destroy(req, res) {
   }
 }
 
-export { index, show, showByUserName, create, destroy };
+export { index, show, showByUserName, create, destroy, loginUser };
