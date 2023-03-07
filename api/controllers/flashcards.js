@@ -1,7 +1,8 @@
 import Flashcard from "../models/flashcards.js";
 
-async function index(req, res) {
+export async function index(req, res) {
     try {
+        console.log('inside index')
         const flashcards = await Flashcard.getAll();
         res.status(200).json(flashcards);
     } catch (error) {
@@ -9,7 +10,7 @@ async function index(req, res) {
     }
 }
 
-async function show(req, res) {
+export async function show(req, res) {
     try {
         const id = parseInt(req.params.id);
         const flashcard = await Flashcard.getOneById(id);
@@ -19,6 +20,19 @@ async function show(req, res) {
     }
 }
 
-
-export default index;
+ export async function create(req, res) {
+    try {
+        const data = req.body;
+        console.log(data)
+        // const token = data.token;
+        // const tokenData = await Token.getOneByToken(token);
+        // data.user_id = tokenData.user_id;
+        const newFlashcard = await Flashcard.create(data);
+        // const user = await User.getOneById(data.user_id);
+        // newFlashcard.username = user.username;
+        res.status(201).json(newFlashcard);
+    } catch (err) {
+        res.status(404).json({ error: err.message });
+    }
+}
 

@@ -32,11 +32,11 @@ class Flashcard {
 
     static async getOneById(id) {
         const response = await db.query(
-            "SELECT * FROM flashcards WHERE event_id = $1",
+            "SELECT * FROM flashcards WHERE flashcard_id = $1;",
             [id]
         );
         if (response.rows.length != 1) {
-            throw new Error("Unable to locate flashcard.");
+            throw Error("Unable to locate flashcard.");
         }
         return new Flashcard(response.rows[0]);
     }
