@@ -15,3 +15,39 @@
 label {
     padding-right: 20px;
 }
+
+button {
+    background-color:#FF6B6C;
+    color:#FFFFFB;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: 'Krona One', sans-serif;
+}
+
+button:hover {
+    background-color: #FFFFFB;
+    color: #FF6B6C;
+}
+
+input {
+    background-color: #B8B8D1;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 12px;
+    font-family: 'Krona One', sans-serif;
+}
+
+select {
+    background-color:#FF6B6C;
+    border-style: none;
+    color:#FFFFFB;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Krona One', sans-serif;
+    
+}
