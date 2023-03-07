@@ -25,11 +25,12 @@ class Flashcard {
     }
 
     static async getCategory(category) {
+      console.log(category)
       const response = await db.query(
-        "SELECT * FROM flashcards WHERE category_name = $1",
+        "SELECT * FROM flashcards WHERE category_name = $1;",
         [category]
       );
-      return response.rows
+      return response.rows.map((g) => new Flashcard(g));
     }
 
     static async getOneById(id) {

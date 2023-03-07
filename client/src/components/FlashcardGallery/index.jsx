@@ -10,7 +10,7 @@ function FlashcardGallery() {
       const response = await fetch("http://localhost:3000/flashcards");
       const data = await response.json();
       setFlashcards(data);
-      console.log(flashcards)
+      console.log(data)
   };
 
   useEffect(() => {
