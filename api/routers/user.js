@@ -12,7 +12,7 @@ const userRouter = Router();
 
 userRouter.post("/register", create);
 //userRouter.post("/login", loginUser);
-userRouter.get("/user/:id", show);
-userRouter.get("/user/:username", showByUserName);
+userRouter.get("/:id", show);
+userRouter.get("/:username", showByUserName);
 
 export default userRouter;
