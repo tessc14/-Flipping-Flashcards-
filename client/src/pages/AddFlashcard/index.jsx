@@ -1,8 +1,14 @@
 import React from 'react'
+import { NewFlashcardForm } from '../../components'
 
 const AddFlashcard = () => {
   return (
-    <div>AddFlashcard</div>
+    <div>
+      <h1>Add a new flashcard:</h1>
+      <div>
+        <NewFlashcardForm />
+      </div>
+    </div>
   )
 }
 
