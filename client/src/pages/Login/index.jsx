@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -10,12 +11,37 @@ const Login = () => {
     e.preventDefault();
     if (!isLogin) {
       console.log("Login");
+      // send login info to server
+      axios
+        .post("/login", {
+          userName,
+          password,
+        })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
     if (isLogin) {
       if (userName.length == 0 || password !== confirmPassword) {
         console.log("Invalid properties");
       } else {
         console.log("Register");
+        // send registration info to server
+        axios
+          .post("/users/register", {
+            username: userName,
+            password: password,
+          })
+          .then((response) => {
+            console.log(response.data);
+            toggleLogin();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       }
     }
   };
