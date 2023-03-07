@@ -20,17 +20,23 @@ function NewFlashcardForm({question, answer, setQuestion, setAnswer}) {
     }
 
   return (
-    <div>
+    <div className="form">
         <form action="submit">
-            <label htmlFor="category">Choose a category:</label>
-            <select id="category" name="category">
-                <option value="History">History</option>
-                <option value="Geography">Geography</option>
-            </select>
-            <label htmlFor="question">Question</label>
-            <input type="text" value={question} id="question" onChange={handleQuestion}/>
-            <label htmlFor="answer">Answer</label>
-            <input type="text" value={answer} id="answer" onChange={handleAnswer}/>
+            <div className="form-section">
+               <label htmlFor="category">Choose a category:</label>
+                <select id="category" name="category">
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                </select> 
+            </div>
+            <div className="form-section">
+                <label htmlFor="question">Question</label>
+                <input type="text" value={question} id="question" onChange={handleQuestion}/>  
+            </div>
+            <div className="form-section">
+               <label htmlFor="answer">Answer</label>
+                <input type="text" value={answer} id="answer" onChange={handleAnswer}/> 
+            </div>
             <button onClick={handleSubmit}>Add flashcard</button>
         </form>
     </div>
