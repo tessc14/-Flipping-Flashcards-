@@ -36,3 +36,13 @@ export async function show(req, res) {
     }
 }
 
+export async function destroy(req, res) {
+    try {
+        const id = parseInt(req.params.id);
+        const flashcard = await Flashcard.getOneById(id);
+        const result = await flashcard.destroy();
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(404).json({ error: err.message });
+    }
+}
