@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useAuth } from "../../contexts";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
+
+  const { setUser, user } = useAuth();
 
   const getPayload = () => {
     const token = window.localStorage.getItem("token");
@@ -16,6 +19,8 @@ const Login = () => {
   };
 
   let userId = getPayload().userId;
+  setUser(userId);
+  console.log(user);
   console.log(userId);
 
   const handleSubmit = (e) => {
