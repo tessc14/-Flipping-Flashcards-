@@ -31,12 +31,13 @@ const Login = () => {
         console.log("Register");
         // send registration info to server
         axios
-          .post("/register", {
-            userName,
-            password,
+          .post("/users/register", {
+            username: userName,
+            password: password,
           })
           .then((response) => {
             console.log(response.data);
+            toggleLogin();
           })
           .catch((error) => {
             console.log(error);

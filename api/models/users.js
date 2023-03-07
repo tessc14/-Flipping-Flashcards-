@@ -24,6 +24,7 @@ class User {
   }
 
   static async create(data) {
+    console.log("Hey");
     const { username, password } = data;
     const response = await db.query(
       "INSERT INTO user_account (username, password) VALUES ($1, $2) RETURNING *;",
