@@ -3,6 +3,7 @@ import { FlashcardGallery } from '../../components'
 
 
 const Flashcards = () => {
+  
   return (
     <div className="flashcard-container">
       <FlashcardGallery />
