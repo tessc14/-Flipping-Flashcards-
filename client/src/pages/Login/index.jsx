@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../contexts";
-
+import "./login.css";
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -72,7 +72,7 @@ const Login = () => {
 
   return (
     <>
-      <div>
+      <div className="loginWrapper">
         {isLogin ? (
           <>
             <h1>Register</h1>
@@ -109,7 +109,7 @@ const Login = () => {
           <>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="userName">UserName</label>
+              <label htmlFor="userName">Username</label>
               <input
                 type="text"
                 name="username"
