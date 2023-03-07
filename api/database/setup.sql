@@ -4,13 +4,14 @@ DROP TABLE IF EXISTS token;
 DROP TABLE IF EXISTS user_account;
 
 CREATE TABLE user_account (
-    user_id SERIAL PRIMARY KEY,
+    user_id INT GENERATED ALWAYS AS IDENTITY,
     username VARCHAR(30) UNIQUE NOT NULL,
-    password CHAR(60) NOT NULL
+    password CHAR(60) NOT NULL,
+    PRIMARY KEY (user_id)
 );
 
 CREATE TABLE token (
-    token_id SERIAL PRIMARY KEY,
+    token_id INT GENERATED ALWAYS AS IDENTITY,
     user_id INT NOT NULL,
     token CHAR(36) UNIQUE NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user_account(user_id)
@@ -21,7 +22,7 @@ CREATE TABLE categories (
 );
 
 CREATE TABLE flashcards (
-    flashcard_id SERIAL PRIMARY KEY,
+    flashcard_id INT GENERATED ALWAYS AS IDENTITY,
     user_id INT NOT NULL,
     question VARCHAR(300),
     answer VARCHAR(300),
