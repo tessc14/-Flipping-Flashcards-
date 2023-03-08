@@ -30,13 +30,21 @@ const Login = () => {
     if (!isLogin) {
       console.log("Login");
       // send login info to server
-      axios
-        .post("/users/login", {
+      fetch("http://localhost:3000/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           username: userName,
           password: password,
-        })
+        }),
+      })
         .then((response) => {
-          const token = response.data.token;
+          return response.json();
+        })
+        .then((data) => {
+          const token = data.token;
           localStorage.setItem("token", token);
           setTimeout(() => {
             navigate("/");
@@ -46,6 +54,7 @@ const Login = () => {
           console.log(error);
         });
     }
+
     if (isLogin) {
       if (userName.length == 0 || password !== confirmPassword) {
         console.log("Invalid properties");
