@@ -36,6 +36,7 @@ export async function show(req, res) {
     }
 }
 
+
 export async function destroy(req, res) {
     try {
         const id = parseInt(req.params.id);
