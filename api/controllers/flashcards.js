@@ -36,3 +36,25 @@ export async function show(req, res) {
     }
 }
 
+
+export async function destroy(req, res) {
+    try {
+        const id = parseInt(req.params.id);
+        const flashcard = await Flashcard.getOneById(id);
+        const result = await flashcard.destroy();
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(404).json({ error: err.message });
+    }
+}
+
+export async function setCategory(req, res) {
+    console.log(req.params.category)
+    try {
+        const category = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
+        const flashcardsByCategory = await Flashcard.getCategory(category);
+        res.status(200).json(flashcardsByCategory);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}

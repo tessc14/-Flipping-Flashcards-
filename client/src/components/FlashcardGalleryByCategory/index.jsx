@@ -1,16 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import {Flashcard} from '../../components'
-import './style.css'
+import '../FlashcardGallery/style.css'
 
-function FlashcardGallery() {
+function FlashcardGalleryByCategory() {
 
   const [flashcards, setFlashcards] = useState([])
 
   async function loadFlashcards() {
-      const response = await fetch("http://localhost:3000/flashcards");
+      const response = await fetch(`http://localhost:3000/${category}`);
       const data = await response.json();
       setFlashcards(data);
-      console.log(data)
   };
 
   useEffect(() => {
@@ -28,4 +27,4 @@ function FlashcardGallery() {
   )
 }
 
-export default FlashcardGallery
+export default FlashcardGalleryByCategory
