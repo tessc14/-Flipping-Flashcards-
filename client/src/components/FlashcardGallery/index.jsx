@@ -7,7 +7,7 @@ function FlashcardGallery() {
   const [flashcards, setFlashcards] = useState([])
 
   async function loadFlashcards() {
-      const response = await fetch("http://localhost:3000/flashcards");
+      const response = await fetch("http://localhost:3000/api/flashcards");
       const data = await response.json();
       setFlashcards(data);
       console.log(data)
