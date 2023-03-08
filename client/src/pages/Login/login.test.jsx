@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import Login from "./index";
 
 describe("Login", () => {
+  beforeEach(() => {
+    render(<Login />);
+  });
+
   it("exists", () => {
     expect(Login).toBeDefined();
   });
@@ -25,5 +29,10 @@ describe("Login", () => {
   it("renders a submit button", () => {
     render(<Login />);
     expect(screen.getByRole("button")).toBeDefined();
+  });
+});
+describe("Login", () => {
+  it("has a handleSubmit function", () => {
+    expect(handleSubmit()).toBeDefined();
   });
 });
