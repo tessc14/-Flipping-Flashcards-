@@ -27,6 +27,8 @@ function FlashcardGallery() {
 
   const [flashcards, setFlashcards] = useState([]);
   const [category, setCategory] = useState(false);
+ 
+  
 
   async function loadFlashcards() {
     const response = await fetch("http://localhost:3000/api/flashcards");
@@ -37,7 +39,7 @@ function FlashcardGallery() {
 
   useEffect(() => {
     loadFlashcards();
-  }, [flashcards]);
+  }, [deleteFlashcard]);
 
   function displayFlashcards(category) {
     if (category === "All") {
@@ -61,9 +63,8 @@ function FlashcardGallery() {
     const response = await fetch(`http://localhost:3000/api/flashcards/${id}`, options);
     await response.json();
     setFlashcards(flashcards.filter(item => item !== flashcards.id))
-    
+  
 }
-
   return (
     <>
       <FlashcardFilter category={category} setCategory={setCategory} />

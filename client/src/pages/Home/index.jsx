@@ -21,6 +21,7 @@ const Home = () => {
       <h2 className="welcome">Welcome</h2>
       <h3>Learn faster with our interactive flashcards!</h3>
       <div className="homeMenu">
+      
         
         <h4>
           <Link to="/flashcards" className="home-links">
