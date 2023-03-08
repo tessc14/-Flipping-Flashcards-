@@ -114,8 +114,12 @@ const Login = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              <button type="submit">Register</button>
-              <button onClick={() => toggleLogin()}>Go to Login</button>
+              <button className="register-button" type="submit">
+                Register
+              </button>
+              <button className="toggle-button" onClick={() => toggleLogin()}>
+                Go to Login
+              </button>
             </form>
           </>
         ) : (
@@ -139,7 +143,9 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button type="submit">Login</button>
-              <button onClick={() => toggleLogin()}>Go to Register</button>
+              <button className="toggle-button" onClick={() => toggleLogin()}>
+                Go to Register
+              </button>
             </form>
           </>
         )}

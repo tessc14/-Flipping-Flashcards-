@@ -1,20 +1,25 @@
-import React from 'react'
+import React from "react";
 
-const categories = ['All', 'History', 'Geography', 'Math', 'Language', 'Art'];
+const categories = ["All", "History", "Geography", "Math", "Language", "Art"];
 
-function FlashcardFilter({ category, setCategory}) {
-
+function FlashcardFilter({ category, setCategory }) {
   const handleCategoryChange = (event) => {
-    console.log(event.target.value)
-    setCategory(event.target.value);
+
+    console.log(event.target.value);
+
   };
 
   return (
     <div className='flashcard-filters'>
-      <label>Category:
+      <label>Category: 
+    <div className="flashcard-filters">
+      <label>
+        Category:
         <select value={category} onChange={handleCategoryChange}>
           {categories.map((category) => (
-            <option key={category} value={category}>{category}</option>
+            <option key={category} value={category}>
+              {category}
+            </option>
           ))}
         </select>
       </label>

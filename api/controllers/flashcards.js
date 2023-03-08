@@ -23,13 +23,7 @@ export async function show(req, res) {
  export async function create(req, res) {
     try {
         const data = req.body;
-        console.log(data)
-        // const token = data.token;
-        // const tokenData = await Token.getOneByToken(token);
-        // data.user_id = tokenData.user_id;
         const newFlashcard = await Flashcard.create(data);
-        // const user = await User.getOneById(data.user_id);
-        // newFlashcard.username = user.username;
         res.status(201).json(newFlashcard);
     } catch (err) {
         res.status(404).json({ error: err.message });
@@ -48,13 +42,13 @@ export async function destroy(req, res) {
     }
 }
 
-export async function setCategory(req, res) {
-    console.log(req.params.category)
-    try {
-        const category = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
-        const flashcardsByCategory = await Flashcard.getCategory(category);
-        res.status(200).json(flashcardsByCategory);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-}
+// export async function setCategory(req, res) {
+//     console.log(req.params.category)
+//     try {
+//         const category = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
+//         const flashcardsByCategory = await Flashcard.getCategory(category);
+//         res.status(200).json(flashcardsByCategory);
+//     } catch (error) {
+//         res.status(500).json({ error: error.message });
+//     }
+// }
