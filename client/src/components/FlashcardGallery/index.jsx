@@ -31,7 +31,7 @@ function FlashcardGallery() {
   async function loadFlashcards() {
     const response = await fetch("http://localhost:3000/api/flashcards");
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setFlashcards(data);
   }
 
@@ -42,13 +42,13 @@ function FlashcardGallery() {
   function displayFlashcards(category) {
     if (category === "All") {
       return flashcards.map((f) => (
-        <Flashcard key={f.id} question={f.question} answer={f.answer} deleteFlashcard={deleteFlashcard}/>
+        <Flashcard key={f.id} id={f.id} question={f.question} answer={f.answer} deleteFlashcard={deleteFlashcard}/>
       ));
     }
     return flashcards
       .filter((f) => !category || f.category_name === category)
       .map((f) => (
-        <Flashcard key={f.id} id={f.id} question={f.question} answer={f.answer} />
+        <Flashcard key={f.id} id={f.id} question={f.question} answer={f.answer} deleteFlashcard={deleteFlashcard}/>
       ));
   }
 
