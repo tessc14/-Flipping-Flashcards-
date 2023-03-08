@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-      <h2>Welcome</h2>
+      <h2 className="welcome">Welcome</h2>
       <h3>Learn faster with our interactive flashcards!</h3>
       <div className="homeMenu">
         
