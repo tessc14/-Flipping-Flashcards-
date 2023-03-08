@@ -1,8 +1,11 @@
 import React from 'react'
 import './style.css'
 
-function NewFlashcardForm({question, answer, setQuestion, setAnswer}) {
+function NewFlashcardForm({question, answer, setQuestion, setAnswer, category, setCategory}) {
 
+    function handleCategory(e) {
+        setCategory(e.target.value)
+    }
 
     function handleQuestion(e) {
         setQuestion(e.target.value)
@@ -14,6 +17,35 @@ function NewFlashcardForm({question, answer, setQuestion, setAnswer}) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        if (question.length > 0 && answer.length > 0) {
+            fetch('http://localhost:3000/flashcards', {
+                method: 'POST',
+                body: JSON.stringify(
+                    {
+                        "question" : question, 
+                        "answer" : answer, 
+                        "category" : category 
+                    }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                alert('Flashcard added successfully.', data);
+                // setTimeout(() => {
+                //     setMessage('')
+                // }, 5000)
+            })
+            .catch((err) => {
+                console.log(err.message);
+                alert('There was a problem in creating your flashcard.');
+                // setTimeout(() => {
+                //     setMessage('')
+                // }, 5000)
+            });
+        }
         console.log(question, answer)
         setAnswer('')
         setQuestion('')
@@ -24,7 +56,7 @@ function NewFlashcardForm({question, answer, setQuestion, setAnswer}) {
         <form action="submit">
             <div className="form-section">
                <label htmlFor="category">Choose a category:</label>
-                <select id="category" name="category">
+                <select id="category" name="category" onChange={handleCategory}>
                     <option value="History">History</option>
                     <option value="Geography">Geography</option>
                 </select> 
