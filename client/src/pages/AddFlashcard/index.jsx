@@ -8,7 +8,7 @@ import { useAuth } from "../../contexts";
 const AddFlashcard = () => {
   const [questionInput, setQuestionInput] = useState('')
   const [answerInput, setAnswerInput] = useState('')
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('History')
   const navigate = useNavigate()
   const { user } = useAuth();
   
