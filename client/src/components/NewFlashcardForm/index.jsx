@@ -22,9 +22,10 @@ function NewFlashcardForm({question, answer, setQuestion, setAnswer, category, s
                 method: 'POST',
                 body: JSON.stringify(
                     {
+                        "user_id" : 1,
                         "question" : question, 
                         "answer" : answer, 
-                        "category" : category 
+                        "category_name" : category 
                     }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
