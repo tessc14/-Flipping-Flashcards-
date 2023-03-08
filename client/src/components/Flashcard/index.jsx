@@ -27,8 +27,7 @@ function Flashcard({ question, answer} ) {
       </div>
       
 
-      {/* {!flipped ? (<h1 className="front">{question}</h1>) : (<h1 className="back"> {answer} </h1>)}
-       */}
+      
     </div>
   )
 }
