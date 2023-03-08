@@ -1,15 +1,14 @@
 import React, {useState} from 'react'
 import './style.css'
 
-function Flashcard({ question, answer} ) {
+function Flashcard({ id, question, answer, deleteFlashcard} ) {
     const [flipped, setFlipped] = useState(false)
 
     function handleClick(e) {
       e.preventDefault()
       setFlipped(!flipped)
     }
-
-
+    
   return (
     <div 
       className={`card ${flipped ? 'flipped' : ''}`} 
@@ -20,7 +19,7 @@ function Flashcard({ question, answer} ) {
         <h2>
           {question}
         </h2>
-        <button className="deleteBtn">X</button>
+        <button className="deleteBtn" onClick={() => deleteFlashcard(id)}>X</button>
       </div>
       <div className='back'>
         <h2>
