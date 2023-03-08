@@ -16,17 +16,17 @@ function Flashcard({ question, answer} ) {
       onClick={handleClick}
     >
       <div className='front'>
+        
         <h2>
           {question}
         </h2>
+        <button className="deleteBtn">X</button>
       </div>
       <div className='back'>
         <h2>
           {answer}
         </h2>
       </div>
-      
-
       
     </div>
   )
