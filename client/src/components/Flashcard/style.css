@@ -12,3 +12,7 @@
     flex-direction: column;
     box-shadow: 5px 5px 15px black;
 }
+
+button{
+    background-color: red;
+}
