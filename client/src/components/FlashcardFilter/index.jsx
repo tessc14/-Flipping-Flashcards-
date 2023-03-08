@@ -4,11 +4,14 @@ const categories = ["All", "History", "Geography", "Math", "Language", "Art"];
 
 function FlashcardFilter({ category, setCategory }) {
   const handleCategoryChange = (event) => {
+
     console.log(event.target.value);
-    setCategory(event.target.value);
+
   };
 
   return (
+    <div className='flashcard-filters'>
+      <label>Category: 
     <div className="flashcard-filters">
       <label>
         Category:
