@@ -20,9 +20,14 @@ function FlashcardGallery() {
   }, [])
 
   function displayFlashcards(category) {
-      return flashcards
-              .filter((f) => !category || f.category_name === category)
-              .map((f) => <Flashcard key={f.id} question={f.question} answer={f.answer} />)
+    if (category === 'All') {
+      return flashcards.map((f) => (
+        <Flashcard key={f.id} question={f.question} answer={f.answer} />
+      ));
+    }
+    return flashcards
+      .filter((f) => !category || f.category_name === category )
+      .map((f) => <Flashcard key={f.id} question={f.question} answer={f.answer} />)
   }
 
   return (
