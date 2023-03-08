@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import Login from "./index";
-
 describe("Login", () => {
+
+  beforeEach(() => {
+
+    vi.mock("user", {
+        test: "5,          
+    })
+  });
+    
+
+  });
   it("exists", () => {
     expect(Login).toBeDefined();
   });
