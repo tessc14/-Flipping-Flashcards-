@@ -6,7 +6,6 @@ const flashcardsRouter = Router();
 flashcardsRouter
         .get("/:id", show)
         .get("/categories/:category", setCategory)
-
         .get("/", index)
         .post("/", create)
         .delete('/:id', destroy)

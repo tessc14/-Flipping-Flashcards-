@@ -27,11 +27,6 @@ const Home = () => {
           Add a new flashcard
         </Link>
       </h4>
-      <h4>
-        <Link to="/categories" className="home-links">
-          Categories
-        </Link>
-      </h4>
       {/* <Link to='/login'>Login</Link> */}
     </>
   );
