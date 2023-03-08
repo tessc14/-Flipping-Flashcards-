@@ -13,7 +13,14 @@
     "axios": "^1.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.2"
+    "react-router-dom": "^6.8.2",
+    "cd..": "^0.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "pg": "^8.7.1",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
