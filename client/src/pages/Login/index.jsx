@@ -38,7 +38,9 @@ const Login = () => {
         .then((response) => {
           const token = response.data.token;
           localStorage.setItem("token", token);
-          navigate("/");
+          setTimeout(() => {
+            navigate("/");
+          }, 100);
         })
         .catch((error) => {
           console.log(error);
