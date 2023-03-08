@@ -6,9 +6,19 @@ function Flashcard({ question, answer} ) {
 
     function handleClick(e) {
       e.preventDefault()
+      if (e.target.className === 'deleteBtn') {
+        return
+      }
+    
       setFlipped(!flipped)
     }
-    
+
+    function handleDelete(e) {
+      e.preventDefault()
+      deleteFlashcard(id)
+    }
+  
+
   return (
     <div 
       className={`card ${flipped ? 'flipped' : ''}`} 
@@ -19,7 +29,7 @@ function Flashcard({ question, answer} ) {
         <h2>
           {question}
         </h2>
-        <button className="deleteBtn">X</button>
+        <button className="deleteBtn" onClick={handleDelete}>X</button>
       </div>
       <div className='back'>
         <h2>
