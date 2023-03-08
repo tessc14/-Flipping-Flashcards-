@@ -9,9 +9,11 @@ function NewFlashcardForm({
   category,
   setCategory,
 }) {
+
   function handleCategory(e) {
     setCategory(e.target.value);
   }
+
 
   function handleQuestion(e) {
     setQuestion(e.target.value);
@@ -29,10 +31,10 @@ function NewFlashcardForm({
         body: JSON.stringify({
           question: question,
           answer: answer,
-          category: category,
+          category_name: category
         }),
         headers: {
-          "Content-type": "application/json; charset=UTF-8",
+          "Content-type": "application/json",
         },
       })
         .then((res) => res.json())
@@ -62,6 +64,9 @@ function NewFlashcardForm({
         <select id="category" name="category" onChange={handleCategory}>
           <option value="History">History</option>
           <option value="Geography">Geography</option>
+          <option value="Math">Math</option>
+          <option value="Language">Language</option>
+          <option value="Art">Art</option>
         </select>
       </div>
       <div className="form-section">

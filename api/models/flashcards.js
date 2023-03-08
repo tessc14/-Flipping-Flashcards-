@@ -1,12 +1,11 @@
 import db from "../database/connect.js";
 
 class Flashcard {
-  constructor({ flashcard_id, user_id, question, answer, category_name }) {
+  constructor({ flashcard_id, question, answer, category_name }) {
     (this.id = flashcard_id),
-      (this.user_id = user_id),
-      (this.question = question),
-      (this.answer = answer),
-      (this.category_name = category_name);
+    (this.question = question),
+    (this.answer = answer),
+    (this.category_name = category_name);
   }
 
     static async getAll() {
@@ -16,19 +15,10 @@ class Flashcard {
         return response.rows.map((g) => new Flashcard(g));
     }
 
-    static async getUserFlashcards(user) {
-      const response = await db.query(
-          "SELECT * FROM flashcards WHERE user_id = $1;",
-          [user.id]
-      );
-      return response.rows.map((g) => new Flashcard(g));
-    }
-
-    // static async getCategory(category) {
-    //   console.log(category)
+    // static async getUserFlashcards(user) {
     //   const response = await db.query(
-    //     "SELECT * FROM flashcards WHERE category_name = $1;",
-    //     [category]
+    //       "SELECT * FROM flashcards WHERE user_id = $1;",
+    //       [user.id]
     //   );
     //   return response.rows.map((g) => new Flashcard(g));
     // }
@@ -43,26 +33,7 @@ class Flashcard {
         }
         return new Flashcard(response.rows[0]);
     }
-    
-    static async create(data) {
-        const {
-            user_id,
-            question,
-            answer,
-            category_name,
-        } = data;
-        const response = await db.query(
-            "INSERT INTO flashcards (user_id, question, answer, category_name) VALUES ($1, $2, $3, $4) RETURNING *;",
-            [
-                user_id,
-                question,
-                answer,
-                category_name,
-            ]
-        );
-
-        return new Flashcard(response.rows[0]);
-    }
+  
 
     async destroy() {
         let response = await db.query(
@@ -74,22 +45,11 @@ class Flashcard {
 
   }
 
-  static async getOneByUserName(username) {
-    const response = await db.query(
-      "SELECT * FROM flashcards WHERE username = $1",
-      [username]
-    );
-    if (response.rows.length != 1) {
-      throw new Error("Unable to locate flashcard.");
-    }
-    return new Flashcard(response.rows[0]);
-  }
-
   static async create(data) {
-    const { user_id, question, answer, category_name } = data;
+    const { question, answer, category_name } = data;
     const response = await db.query(
-      "INSERT INTO flashcards (user_id, question, answer, category_name) VALUES ($1, $2, $3, $4) RETURNING *;",
-      [user_id, question, answer, category_name]
+      "INSERT INTO flashcards (question, answer, category_name) VALUES ($1, $2, $3) RETURNING *;",
+      [question, answer, category_name]
     );
 
     return new Flashcard(response.rows[0]);

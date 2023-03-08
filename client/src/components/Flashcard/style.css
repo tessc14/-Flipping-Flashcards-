@@ -24,12 +24,18 @@
 .card .front,
 .card .back {
     position: absolute;
-    /* padding: 1rem; */
+    padding: 0px 20px;
     backface-visibility: hidden;
 }
 
 .card .back {
     transform: rotateY(180deg);
 }
+
+
+.deleteBtn {
+    padding: 10px 0px;
+}
+
 
 
