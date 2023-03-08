@@ -46,6 +46,7 @@ const Login = () => {
         .then((data) => {
           const token = data.token;
           localStorage.setItem("token", token);
+          console.log(token)
           setTimeout(() => {
             navigate("/");
           }, 100);
