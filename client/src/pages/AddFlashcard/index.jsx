@@ -1,11 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { NewFlashcardForm } from '../../components'
+import { useAuth } from "../../contexts";
+
+
 
 const AddFlashcard = () => {
   const [questionInput, setQuestionInput] = useState('')
   const [answerInput, setAnswerInput] = useState('')
   const [category, setCategory] = useState('')
-
+  const navigate = useNavigate()
+  const { user } = useAuth();
+  
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user]);
 
   return (
     <div>
