@@ -73,16 +73,15 @@ function FlashcardGallery() {
       options
     );
     await response.json();
+    setFlashcards(flashcards.filter((item) => item !== flashcards.id));
   }
 
-  setFlashcards(flashcards.filter((item) => item !== flashcards.id));
+  return (
+    <>
+      <FlashcardFilter category={category} setCategory={setCategory} />
+      <div className="flashcard-container">{displayFlashcards(category)}</div>
+    </>
+  );
 }
-
-return (
-  <>
-    <FlashcardFilter category={category} setCategory={setCategory} />
-    <div className="flashcard-container">{displayFlashcards(category)}</div>
-  </>
-);
 
 export default FlashcardGallery;
