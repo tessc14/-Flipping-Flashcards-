@@ -1,6 +1,7 @@
 import FlashcardGallery from ".";
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
+import React, { useState } from "react";
 
 describe("FlashcardGallery", () => {
   it("exists", () => {
