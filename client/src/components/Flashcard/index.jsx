@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './style.css'
 
-function Flashcard({ question, answer} ) {
+function Flashcard({ question, answer, deleteFlashcard, id } ) {
     const [flipped, setFlipped] = useState(false)
 
     function handleClick(e) {
