@@ -20,7 +20,7 @@ However, we anticipated this from someone as uncultured as you.
 
 Such that we have created a page to make your own questions!
 
-So go wild with whatever muck you wish to remember.
+So go wild with whatever muck you wish to remember and learn.
 
 ### Your very own Flipping Flashcards
 
