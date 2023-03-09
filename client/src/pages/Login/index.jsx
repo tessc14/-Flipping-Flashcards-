@@ -93,7 +93,7 @@ const Login = () => {
         {isLogin ? (
           <>
             <h1>Register</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id='register-form'>
               <label htmlFor="userName">Username</label>
               <input
                 type="text"
@@ -129,7 +129,7 @@ const Login = () => {
         ) : (
           <>
             <h1 className="login-title">Login</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id='login-form'>
               <label htmlFor="userName">Username</label>
               <input
                 type="text"

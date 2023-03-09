@@ -67,7 +67,7 @@ function NewFlashcardForm({
 
   return (
     <div className="add-container">
-      <form action="submit">
+      <form id="addFlashcard" action="submit">
         <div className="form-section">
           <label htmlFor="category">Category</label>
           <br />
