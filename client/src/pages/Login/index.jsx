@@ -47,9 +47,12 @@ const Login = () => {
           const token = data.token;
           localStorage.setItem("token", token);
           console.log(token);
+          let userId = getPayload().userId;
+          setUser(userId);
+          console.log(userId);
           setTimeout(() => {
             navigate("/");
-          }, 100);
+          }, 200);
         })
         .catch((error) => {
           console.log(error);
@@ -115,10 +118,10 @@ const Login = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              <button className="register-button" type="submit">
+              <button aria-label="register" className="register-button" type="submit">
                 Register
               </button>
-              <button className="toggle-button" onClick={() => toggleLogin()}>
+              <button aria-label="login" className="toggle-button" onClick={() => toggleLogin()}>
                 Go to Login
               </button>
             </form>

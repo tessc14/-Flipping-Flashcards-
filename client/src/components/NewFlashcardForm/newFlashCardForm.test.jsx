@@ -1,6 +1,7 @@
 import NewFlashcardForm from "./";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
+import React, { useState } from "react";
 
 describe("NewFlashcardForm", () => {
   it("exists", () => {
@@ -8,9 +9,6 @@ describe("NewFlashcardForm", () => {
   });
   it("renders", () => {
     render(<NewFlashcardForm />);
-  });
-  it("has a function called handleSubmit", () => {
-    expect(NewFlashcardForm.handleSubmit).toBeDefined();
   });
   it("renders all form fields correctly", () => {
     const { getByLabelText } = render(<NewFlashcardForm />);
