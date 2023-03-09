@@ -27,8 +27,6 @@ function FlashcardGallery() {
 
   const [flashcards, setFlashcards] = useState([]);
   const [category, setCategory] = useState(false);
- 
-  
 
   async function loadFlashcards() {
     const response = await fetch("http://localhost:3000/api/flashcards");
@@ -39,7 +37,7 @@ function FlashcardGallery() {
 
   useEffect(() => {
     loadFlashcards();
-  }, [deleteFlashcard]);
+  }, [flashcards]);
 
   function displayFlashcards(category) {
     if (category === "All") {
@@ -62,21 +60,9 @@ function FlashcardGallery() {
     }
     const response = await fetch(`http://localhost:3000/api/flashcards/${id}`, options);
     await response.json();
-<<<<<<< HEAD
-<<<<<<< HEAD
     setFlashcards(flashcards.filter(item => item !== flashcards.id))
     
 }
-=======
-
-    setFlashcards(flashcards.filter((item) => item !== flashcards.id));
-  }
->>>>>>> 25c8f0a1854e341fb2ca620fc5a6b8554a2b43d5
-=======
-
-    setFlashcards(flashcards.filter((item) => item !== flashcards.id));
-  }
->>>>>>> 6471738c860d6668a6385587b620d8a07be75cc9
 
   return (
     <>
