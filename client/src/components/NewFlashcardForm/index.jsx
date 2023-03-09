@@ -60,7 +60,7 @@ function NewFlashcardForm({
   return (
     <form action="submit">
       <div className="form-section">
-        <label htmlFor="category">Choose a category:</label>
+        <label htmlFor="category">Category</label>
         <select id="category" name="category" onChange={handleCategory}>
           <option value="History">History</option>
           <option value="Geography">Geography</option>

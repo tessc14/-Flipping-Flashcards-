@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './style.css'
 
-function Flashcard({ id, question, answer, deleteFlashcard} ) {
+function Flashcard({ question, answer, deleteFlashcard, id } ) {
     const [flipped, setFlipped] = useState(false)
     const [favourite, setFavourite] = useState(false)
     

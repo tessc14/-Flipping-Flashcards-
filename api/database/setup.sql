@@ -2,6 +2,14 @@ DROP TABLE IF EXISTS flashcards;
 DROP TABLE IF EXISTS token;
 DROP TABLE IF EXISTS user_account;
 
+CREATE TABLE flashcards (
+    flashcard_id INT GENERATED ALWAYS AS IDENTITY,
+    question VARCHAR(300),
+    answer VARCHAR(300),
+    category_name VARCHAR(100) NOT NULL
+);
+
+
 CREATE TABLE user_account (
     user_id INT GENERATED ALWAYS AS IDENTITY,
     username VARCHAR(30) UNIQUE NOT NULL,
@@ -17,12 +25,7 @@ CREATE TABLE token (
 );
 
 
-CREATE TABLE flashcards (
-    flashcard_id INT GENERATED ALWAYS AS IDENTITY,
-    question VARCHAR(300),
-    answer VARCHAR(300),
-    category_name VARCHAR(100) NOT NULL
-);
+
 
 INSERT INTO user_account (username, password)
 VALUES ('user1', 'password1'),
