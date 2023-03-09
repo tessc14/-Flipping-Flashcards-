@@ -4,7 +4,7 @@
 
 https://flipping-flashcards.onrender.com/
 
-Flipping Flashcards a radical way to revise.
+Flipping Flashcards a radical new way to revise.
 
 With dynamic flip action studying has never felt this good!
 
