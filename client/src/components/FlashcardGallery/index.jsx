@@ -41,7 +41,7 @@ function FlashcardGallery() {
 
   useEffect(() => {
     loadFlashcards();
-  }, [deleteFlashcard]);
+  }, [flashcards]);
 
   function displayFlashcards(category) {
     if (category === "All") {
