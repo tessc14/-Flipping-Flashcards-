@@ -30,6 +30,8 @@ Host your own! It's easy!
 
 #### .env
 
+Just place in the API folder with:
+
 PORT = XXXX
 
 DB_URL = "link to a postgres database"
@@ -39,6 +41,8 @@ SECRET = "Your deepest darkest secret that must never be uncovered, like how you
 SALT = 12
 
 #### Commands
+
+From the API folder use the command `npm run setup-db`
 
 From the root folder write the command `npm run postbuild`
 
