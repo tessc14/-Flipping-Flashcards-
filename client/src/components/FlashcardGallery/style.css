@@ -1,3 +1,10 @@
+html{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .flashcard-container {
     background-color: #5B5F97;
     display: flex;
@@ -5,7 +12,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    max-width: 100%;
+    max-width: 500px;
     padding: 20px 10px;
     border-radius: 20px;
     margin: 30px;

@@ -44,7 +44,7 @@ const NavBar = () => {
             Flashcards
           </NavLink>
           <NavLink style={styles} to="/add">
-            Add a Flashcard
+            New Flashcard
           </NavLink>
           {/* <NavLink style={styles} to="/:username">
             User
