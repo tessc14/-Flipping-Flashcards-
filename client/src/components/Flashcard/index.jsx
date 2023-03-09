@@ -37,18 +37,15 @@ function Flashcard({ question, answer, deleteFlashcard, id } ) {
       className={`card ${flipped ? 'flipped' : ''}`} 
       onClick={handleClick}
     >
-      
       <div className='front'>
         <h2>
           {question}
         </h2>
         <button aria-label="delete" className="deleteBtn" onClick={handleDelete}>X</button>
         {
-          !favourite ? <button aria-label="favourite" className="favouriteBtn" onClick={handleFavourite}> &#9825;</button> : <button aria-label="favourite" className="favouriteBtn" onClick={handleFavourite}>&hearts;</button>
+          !favourite ? <button aria-label="favourite" className="favouriteBtn" onClick={handleFavourite}> &#9825;</button> 
+            : <button aria-label="favourite" className="favouriteBtn" onClick={handleFavourite}>&hearts;</button>
         }
-        
-        
-        
       </div>
       <div className='back'>
         <h2>

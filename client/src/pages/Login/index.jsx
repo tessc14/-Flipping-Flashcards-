@@ -118,10 +118,10 @@ const Login = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              <button className="register-button" type="submit">
+              <button aria-label="register" className="register-button" type="submit">
                 Register
               </button>
-              <button className="toggle-button" onClick={() => toggleLogin()}>
+              <button aria-label="login" className="toggle-button" onClick={() => toggleLogin()}>
                 Go to Login
               </button>
             </form>
