@@ -46,6 +46,6 @@ From the API folder use the command `npm run setup-db`
 
 From the root folder write the command `npm run postbuild`
 
-Wow, we look its all built and ready to use with the command `npm start`
+Wowie look its all built and ready to use with the command `npm start`
 
 Then just go to `localhost:XXXX` to experience your very own Flipping Flashcards!
