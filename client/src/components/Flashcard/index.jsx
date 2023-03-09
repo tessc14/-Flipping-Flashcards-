@@ -19,9 +19,7 @@ function Flashcard({ question, answer, deleteFlashcard, id } ) {
 
     function handleDelete(e) {
         e.preventDefault()
-
         deleteFlashcard(id)
-      
     }
 
     function handleFavourite(e) {
