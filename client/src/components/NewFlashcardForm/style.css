@@ -17,11 +17,17 @@
 
 
 .form-section {
-    padding: 20px;
+    width: 90%;
+    text-align: center;
 }
 
 label {
-    padding-right: 20px;
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+    color: #FFFFFB;
 }
 
 button {
@@ -30,7 +36,7 @@ button {
     border-style: none;
     border-radius: 10px;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 20px;
     font-family: 'Krona One', sans-serif;
     font-size: 13px;
@@ -39,9 +45,11 @@ button {
 button:hover {
     background-color: #FFFFFB;
     color: #FF6B6C;
+    cursor: pointer;
 }
 
 input {
+    width: 100%;
     background-color: #B8B8D1;
     border-style: none;
     border-radius: 10px;
@@ -58,7 +66,11 @@ select {
     border-radius: 10px;
     font-size: 16px;
     font-family: 'Krona One', sans-serif;
-    
+    text-align: center;
+}
+
+select:hover{
+    cursor: pointer;
 }
 
 .add-container{
