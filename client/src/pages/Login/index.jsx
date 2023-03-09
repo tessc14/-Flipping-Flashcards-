@@ -47,9 +47,12 @@ const Login = () => {
           const token = data.token;
           localStorage.setItem("token", token);
           console.log(token);
+          let userId = getPayload().userId;
+          setUser(userId);
+          console.log(userId);
           setTimeout(() => {
             navigate("/");
-          }, 100);
+          }, 200);
         })
         .catch((error) => {
           console.log(error);
