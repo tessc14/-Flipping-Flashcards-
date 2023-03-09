@@ -1,33 +1,32 @@
 .homeMenu {
-    background-color: #FF6B6C;
-    border-radius: 20px;
-    padding: 10px;
-    
-    margin:50px 300px;
+  background-color: #FF6B6C;
+  border-radius: 20px;
+  padding: 10px;
+  
+  margin:50px 300px;
 }
 
 @media screen and (max-width: 600px) {
-    .homeMenu {
-      margin: 10px;
-    }
+  .homeMenu {
+    margin: 10px;
   }
-  
+}
+
 
 @media screen and (max-width: 600px) {
-    .form {
-      margin: 0;
-    }
+  .form {
+    margin: 0;
   }
+}
 
 .welcome {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 
 h4 {
-    padding: 25px;
-    font-size: 30px;
+  padding: 25px;
+  font-size: 30px;
 }
-
 
 

@@ -67,9 +67,10 @@ function NewFlashcardForm({
 
   return (
     <div className="add-container">
-      <form action="submit">
+      <form id="addFlashcard" action="submit">
         <div className="form-section">
           <label htmlFor="category">Category</label>
+          <br />
           <select id="category" name="category" onChange={handleCategory}>
             <option value="History">History</option>
             <option value="Geography">Geography</option>
@@ -80,6 +81,7 @@ function NewFlashcardForm({
         </div>
         <div className="form-section">
           <label htmlFor="question">Question</label>
+          <br />
           <input
             type="text"
             value={question}
@@ -89,6 +91,7 @@ function NewFlashcardForm({
         </div>
         <div className="form-section">
           <label htmlFor="answer">Answer</label>
+          <br />
           <input
             type="text"
             value={answer}
