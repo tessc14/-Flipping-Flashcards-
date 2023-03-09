@@ -31,7 +31,6 @@ function FlashcardGallery() {
   async function loadFlashcards() {
     const response = await fetch("http://localhost:3000/api/flashcards");
     const data = await response.json();
-    console.log(data);
     setFlashcards(data);
   }
 

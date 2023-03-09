@@ -2,7 +2,6 @@ import Flashcard from "../models/flashcards.js";
 
 export async function index(req, res) {
     try {
-        console.log('inside index')
         const flashcards = await Flashcard.getAll();
         res.status(200).json(flashcards);
     } catch (error) {
