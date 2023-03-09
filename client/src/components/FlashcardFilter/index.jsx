@@ -15,14 +15,15 @@ function FlashcardFilter({ category, setCategory }) {
     <div className="flashcard-filters">
       <label className="category-label">
         Category:
-        <select value={category} onChange={handleCategoryChange}>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
       </label>
+      <select value={category} onChange={handleCategoryChange}>
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+      
     </div>
   );
 }
