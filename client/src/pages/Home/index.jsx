@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts";
 import logoImage from "../../assets/logoF.svg";
-import './style.css'
+import "./style.css";
 
 const Home = () => {
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
   const navigate = useNavigate();
 
   console.log({ user });
@@ -16,13 +16,17 @@ const Home = () => {
     }
   }, [user]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser("");
+    navigate("/login");
+  };
+
   return (
     <>
       <h2 className="welcome">Welcome</h2>
       <h3>Learn faster with our interactive flashcards!</h3>
       <div className="homeMenu">
-      
-        
         <h4>
           <Link to="/flashcards" className="home-links">
             Start Flipping Flashcards
@@ -34,15 +38,15 @@ const Home = () => {
           </Link>
         </h4>
         <h4>
-          <Link to="/login" className="home-links">
+          <Link to="/login" className="home-links" onClick={handleLogout}>
             Log out
           </Link>
         </h4>
         <div className="nav-logo">
-            <img src={logoImage} alt="logo" className="logo"/>
+          <img src={logoImage} alt="logo" className="logo" />
         </div>
       </div>
-      
+
       {/* <Link to='/login'>Login</Link> */}
     </>
   );
