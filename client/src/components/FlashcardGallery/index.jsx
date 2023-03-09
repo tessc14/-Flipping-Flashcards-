@@ -31,7 +31,6 @@ function FlashcardGallery() {
   async function loadFlashcards() {
     const response = await fetch("http://localhost:3000/api/flashcards");
     const data = await response.json();
-    console.log(data);
     setFlashcards(data);
   }
 
@@ -73,8 +72,11 @@ function FlashcardGallery() {
       options
     );
     await response.json();
-    setFlashcards(flashcards.filter((item) => item !== flashcards.id));
-  }
+    
+    setFlashcards(flashcards.filter(item => item !== flashcards.id))
+    
+}
+
 
   return (
     <>
