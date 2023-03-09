@@ -8,19 +8,25 @@ function Flashcard({ question, answer, deleteFlashcard, id } ) {
 
     function handleClick(e) {
       e.preventDefault()
-      if (e.target.className === 'deleteBtn' || 'favouriteBtn') {
+      if (e.target.className === 'deleteBtn' ) {
+        return
+      } else if (e.target.className === 'favouriteBtn') {
         return
       }
-    
+ 
       setFlipped(!flipped)
     }
 
     function handleDelete(e) {
-      e.preventDefault()
-      deleteFlashcard(id)
+      const result = confirm("Are you sure you want to delete this flashcard?");
+      if (result) {
+        e.preventDefault()
+
+        deleteFlashcard(id)
+      }
+      
     }
 
-  
     function handleFavourite(e) {
       setFavourite(!favourite)
       
@@ -36,9 +42,9 @@ function Flashcard({ question, answer, deleteFlashcard, id } ) {
         <h2>
           {question}
         </h2>
-        <button className="deleteBtn" onClick={handleDelete}>X</button>
+        <button aria-label="delete" className="deleteBtn" onClick={handleDelete}>X</button>
         {
-          !favourite ? <button className="favouriteBtn" onClick={handleFavourite}> &#9825;</button> : <button onClick={handleFavourite}>&hearts;</button>
+          !favourite ? <button aria-label="favourite" className="favouriteBtn" onClick={handleFavourite}> &#9825;</button> : <button aria-label="favourite" className="favouriteBtn" onClick={handleFavourite}>&hearts;</button>
         }
         
         

@@ -35,7 +35,18 @@
 
 .deleteBtn {
     padding: 10px 0px;
+    width: 20%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: auto;
 }
 
+.favouriteBtn {
+    font-size: 20px;
+    width: 20%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: auto;
 
+}
 

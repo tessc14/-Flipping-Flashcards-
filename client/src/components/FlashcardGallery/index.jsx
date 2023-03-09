@@ -41,27 +41,42 @@ function FlashcardGallery() {
   function displayFlashcards(category) {
     if (category === "All") {
       return flashcards.map((f) => (
-        <Flashcard key={f.id} question={f.question} answer={f.answer} deleteFlashcard={deleteFlashcard}/>
+        <Flashcard
+          key={f.id}
+          question={f.question}
+          answer={f.answer}
+          deleteFlashcard={deleteFlashcard}
+        />
       ));
     }
     return flashcards
       .filter((f) => !category || f.category_name === category)
       .map((f) => (
-        <Flashcard key={f.id} id={f.id} question={f.question} answer={f.answer} />
+        <Flashcard
+          key={f.id}
+          id={f.id}
+          question={f.question}
+          answer={f.answer}
+        />
       ));
   }
 
   async function deleteFlashcard(id) {
-    console.log(id)
+    console.log(id);
     const options = {
-        method: "DELETE",
-        headers: { 'Content-Type': 'application/json' }
-    }
-    const response = await fetch(`http://localhost:3000/api/flashcards/${id}`, options);
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    };
+    const response = await fetch(
+      `http://localhost:3000/api/flashcards/${id}`,
+      options
+    );
     await response.json();
+    
     setFlashcards(flashcards.filter(item => item !== flashcards.id))
     
 }
+
 
   return (
     <>
