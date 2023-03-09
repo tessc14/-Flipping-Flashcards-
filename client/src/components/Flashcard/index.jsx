@@ -18,13 +18,8 @@ function Flashcard({ question, answer, deleteFlashcard, id } ) {
     }
 
     function handleDelete(e) {
-      const result = confirm("Are you sure you want to delete this flashcard?");
-      if (result) {
         e.preventDefault()
-
         deleteFlashcard(id)
-      }
-      
     }
 
     function handleFavourite(e) {
