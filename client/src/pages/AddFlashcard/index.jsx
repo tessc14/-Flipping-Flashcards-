@@ -20,7 +20,7 @@ const AddFlashcard = () => {
 
   return (
     <div>
-      <h1>Add a new flashcard:</h1>
+      <h1 id='addH1'>Add a new flashcard:</h1>
       <div>
         <NewFlashcardForm question={questionInput} setQuestion={setQuestionInput} answer={answerInput} setAnswer={setAnswerInput} category={category} setCategory={setCategory}/>
       </div>
