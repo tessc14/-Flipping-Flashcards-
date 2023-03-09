@@ -42,9 +42,9 @@ function Flashcard({ question, answer, deleteFlashcard, id } ) {
         <h2>
           {question}
         </h2>
-        <button className="deleteBtn" onClick={handleDelete}>X</button>
+        <button aria-label="delete" className="deleteBtn" onClick={handleDelete}>X</button>
         {
-          !favourite ? <button className="favouriteBtn" onClick={handleFavourite}> &#9825;</button> : <button className="favouriteBtn" onClick={handleFavourite}>&hearts;</button>
+          !favourite ? <button aria-label="favourite" className="favouriteBtn" onClick={handleFavourite}> &#9825;</button> : <button aria-label="favourite" className="favouriteBtn" onClick={handleFavourite}>&hearts;</button>
         }
         
         
