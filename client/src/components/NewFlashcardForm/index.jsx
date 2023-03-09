@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 function NewFlashcardForm({
@@ -9,11 +9,9 @@ function NewFlashcardForm({
   category,
   setCategory,
 }) {
-
   function handleCategory(e) {
     setCategory(e.target.value);
   }
-
 
   function handleQuestion(e) {
     setQuestion(e.target.value);
@@ -31,7 +29,7 @@ function NewFlashcardForm({
         body: JSON.stringify({
           question: question,
           answer: answer,
-          category_name: category
+          category_name: category,
         }),
         headers: {
           "Content-type": "application/json",
@@ -39,7 +37,7 @@ function NewFlashcardForm({
       })
         .then((res) => res.json())
         .then((data) => {
-          alert("Flashcard added successfully.", data);
+          handleMessage();
           // setTimeout(() => {
           //     setMessage('')
           // }, 5000)
@@ -57,33 +55,55 @@ function NewFlashcardForm({
     setQuestion("");
   }
 
+  const [message, setMessage] = useState(false);
+
+  function handleMessage() {
+    setMessage(!message);
+
+    setTimeout(() => {
+      setMessage(false);
+    }, 2000);
+  }
+
   return (
-    <form action="submit">
-      <div className="form-section">
-        <label htmlFor="category">Choose a category:</label>
-        <select id="category" name="category" onChange={handleCategory}>
-          <option value="History">History</option>
-          <option value="Geography">Geography</option>
-          <option value="Math">Math</option>
-          <option value="Language">Language</option>
-          <option value="Art">Art</option>
-        </select>
-      </div>
-      <div className="form-section">
-        <label htmlFor="question">Question</label>
-        <input
-          type="text"
-          value={question}
-          id="question"
-          onChange={handleQuestion}
-        />
-      </div>
-      <div className="form-section">
-        <label htmlFor="answer">Answer</label>
-        <input type="text" value={answer} id="answer" onChange={handleAnswer} />
-      </div>
-      <button onClick={handleSubmit}>Add flashcard</button>
-    </form>
+    <div className="add-container">
+      <form action="submit">
+        <div className="form-section">
+          <label htmlFor="category">Choose a category:</label>
+          <select id="category" name="category" onChange={handleCategory}>
+            <option value="History">History</option>
+            <option value="Geography">Geography</option>
+            <option value="Math">Math</option>
+            <option value="Language">Language</option>
+            <option value="Art">Art</option>
+          </select>
+        </div>
+        <div className="form-section">
+          <label htmlFor="question">Question</label>
+          <input
+            type="text"
+            value={question}
+            id="question"
+            onChange={handleQuestion}
+          />
+        </div>
+        <div className="form-section">
+          <label htmlFor="answer">Answer</label>
+          <input
+            type="text"
+            value={answer}
+            id="answer"
+            onChange={handleAnswer}
+          />
+        </div>
+        <button onClick={handleSubmit}>Add flashcard</button>
+      </form>
+      {message && (
+        <p className="message">
+          Flashcard <br></br>added!
+        </p>
+      )}
+    </div>
   );
 }
 

@@ -60,3 +60,24 @@ select {
     font-family: 'Krona One', sans-serif;
     
 }
+
+.add-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.message{
+    font-size: 20px;
+    background-color: #FF6B6C;
+    border-radius: 20px;
+    width: 150px;
+}
+
+label{
+    color: white;
+}
+
