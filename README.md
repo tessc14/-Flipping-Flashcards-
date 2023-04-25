@@ -49,3 +49,10 @@ From the root folder write the command `npm run postbuild`
 Wowie look its all built and ready to use with the command `npm start`
 
 Then just go to `localhost:XXXX` to experience your very own Flipping Flashcards!
+
+#### Technologies
+
+- React
+- JavaScript
+- NodeJS
+- PostgreSQL
