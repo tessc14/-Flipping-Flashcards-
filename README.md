@@ -14,13 +14,9 @@ Whats that?
 
 You don't like our questions? 🧐
 
-Wow, what rudeness.
+Good thing we have created a page to make your own questions!
 
-However, we anticipated this from someone as uncultured as you.
-
-Such that we have created a page to make your own questions!
-
-So go wild with whatever muck you wish to remember and learn.
+So go wild with whatever you wish to remember and learn.
 
 ### Your very own Flipping Flashcards
 
